@@ -1,0 +1,8 @@
+先运行main.py
+后运行run.py ，计算保存所有的标准n
+也可以运行all_n.py 计算所有的不标准n
+
+外汇
+先运行getGBPdata.py
+在运行calculate_n_struct_and_insert_into_db.py
+临时写了一个getDataAndCalAndInsert 来合并以上两步

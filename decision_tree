@@ -1,0 +1,7 @@
+import core.data_level.mysql as mysql
+
+
+df=mysql.select_basd_on_code('600123')
+
+for i in df.iterrows():
+	print i.high
