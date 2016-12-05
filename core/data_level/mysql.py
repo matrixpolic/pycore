@@ -4,7 +4,7 @@ import pandas as pd
 
 
 engine = create_engine(
-    'mysql://matrix1:@127.0.0.1:3306/stock_zen?charset=utf8')
+    'mysql://root:root@127.0.0.1:3306/stock_zen?charset=utf8')
 
 def insert_sh_5mins(df):
     df.to_sql('sh5mins', engine,
