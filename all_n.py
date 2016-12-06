@@ -99,7 +99,7 @@ def insert_to_tb(result,table="all_N_struct"):
     # for i in xrange(0, len(result)):
     #     Ndetail.loc[i] = result[i]
     #info=mysql.insert_tab(Ndetail, "N_struct")
-    mysql.insert_tab(result, table)
+    #mysql.insert_tab(result, table)
     #print info
     return result
 
@@ -153,7 +153,7 @@ result = [i for i in codes if i not in already_codes]
 #     total_run(i)
 
 
-# total_run("600123")
+#total_run("600123")
 
 def pool_func(func_name, ls,num=30):
     pool = ThreadPool(num)
@@ -162,7 +162,7 @@ def pool_func(func_name, ls,num=30):
     pool.join()
     return results
 
-pool_func(total_run, result)
+#pool_func(total_run, result)
 
 
 
