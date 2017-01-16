@@ -13,7 +13,10 @@ arg=argv
 def numbers_to_list(argument):
     switcher = {
         '5': ["GBP_USD","M5","GBP_USE_N_struct"],
-        '30': ["GBP_USD30","M30","GBP_USE_N_struct30"],
+        #'30': ["GBP_USD30","M30","GBP_USE_N_struct30"],
+        '5XAU': ["XAU_USD","M5","XAU_USD_N_struct"],
+        '5EUR': ["EUR_USD","M5","EUR_USD_N_struct"],
+        '5JPY': ["USD_JPY","M5","USD_JPY_N_struct"],
        
     }
     return switcher.get(argument, "nothing")
@@ -31,6 +34,7 @@ if(len(arg)>=2):
 	table=info_list[0]
 	granularity=info_list[1]
 	n_table=info_list[2]
+	instrument=table
 
 	if getGBPdata(instrument, table, granularity) !="empty":	
 		df=mysql.select_with_index(table,instrument);

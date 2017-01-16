@@ -11,6 +11,12 @@ headers = {	'Authorization': '101-004-4052008-001 2e4fbc4ab3d4fb9c8bc5050d14409d
             'Host': 'api-fxpractice.oanda.com'
             }
 
+headers = {	'Authorization': '101-004-4052008-001 2e4fbc4ab3d4fb9c8bc5050d14409d97-5aa9c73f1b01fa84afc3f77615efacdb',
+            'X-Target-URI': 'https://api-fxpractice.oanda.com',
+            'Connection': 'Keep-Alive',
+            'Host': 'api-fxpractice.oanda.com'
+            }           
+
 # instrument="GBP_USD"
 
 
@@ -25,7 +31,7 @@ def getGBPdata(instrument,table,granularity):
 	print url
 	rs = requests
 	# result = rs.get(url,headers=headers)
-	result = rs.get(url)
+	result = rs.get(url,headers=headers)
 	# data=json.dumps(result.json());
 	print result
 

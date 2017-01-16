@@ -27,7 +27,9 @@ def m30():
 		result=total_run(df, instrument,table,n_table)
 	return result
 
-sched = BlockingScheduler()
+
+#must define the UTC
+sched = BlockingScheduler(timezone="UTC")
 sched.add_job(m5, 'interval', hours=1)
-sched.add_job(m5, 'interval', hours=6)
+sched.add_job(m30, 'interval', hours=6)
 sched.start()
