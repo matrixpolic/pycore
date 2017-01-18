@@ -12,11 +12,11 @@ arg=argv
 
 def numbers_to_list(argument):
     switcher = {
-        '5': ["GBP_USD","M5","GBP_USE_N_struct"],
+        '30GBP': ["GBP_USD","M30","GBP_USE_N_struct30"],
         #'30': ["GBP_USD30","M30","GBP_USE_N_struct30"],
-        '5XAU': ["XAU_USD","M5","XAU_USD_N_struct"],
-        '5EUR': ["EUR_USD","M5","EUR_USD_N_struct"],
-        '5JPY': ["USD_JPY","M5","USD_JPY_N_struct"],
+        '30XAU': ["XAU_USD","M30","XAU_USD_N_struct"],
+        '30EUR': ["EUR_USD","M30","EUR_USD_N_struct"],
+        '30JPY': ["USD_JPY","M30","USD_JPY_N_struct"],
        
     }
     return switcher.get(argument, "nothing")
@@ -31,11 +31,11 @@ if(len(arg)>=2):
 		print "****************"
 		exit();
 
-	table=info_list[0]
+	table=info_list[0]+"30"
 	granularity=info_list[1]
 	n_table=info_list[2]
-	instrument=table
-
+	instrument=info_list[0]
+	#print table
 	#exit();
 
 	if getGBPdata(instrument, table, granularity) !="empty":	
