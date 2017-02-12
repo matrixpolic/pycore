@@ -12,7 +12,7 @@ arg=argv
 
 def numbers_to_list(argument):
     switcher = {
-        '5': ["GBP_USD","M5","GBP_USE_N_struct"],
+        '5GBP': ["GBP_USD","M5","GBP_USE_N_struct"],
         #'30': ["GBP_USD30","M30","GBP_USE_N_struct30"],
         '5XAU': ["XAU_USD","M5","XAU_USD_N_struct"],
         '5EUR': ["EUR_USD","M5","EUR_USD_N_struct"],

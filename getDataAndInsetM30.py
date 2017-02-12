@@ -14,9 +14,9 @@ def numbers_to_list(argument):
     switcher = {
         '30GBP': ["GBP_USD","M30","GBP_USE_N_struct30"],
         #'30': ["GBP_USD30","M30","GBP_USE_N_struct30"],
-        '30XAU': ["XAU_USD","M30","XAU_USD_N_struct"],
-        '30EUR': ["EUR_USD","M30","EUR_USD_N_struct"],
-        '30JPY': ["USD_JPY","M30","USD_JPY_N_struct"],
+        '30XAU': ["XAU_USD","M30","XAU_USD_N_struct30"],
+        '30EUR': ["EUR_USD","M30","EUR_USD_N_struct30"],
+        '30JPY': ["USD_JPY","M30","USD_JPY_N_struct30"],
        
     }
     return switcher.get(argument, "nothing")
