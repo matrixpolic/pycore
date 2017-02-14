@@ -3,7 +3,7 @@ import core.data_level.mysql as mysql
 import pandas as pd
 
 
-code = "000009"
+code = "600166"
 df = mysql.select_basd_on_code(code)
 
 
@@ -148,32 +148,48 @@ old_len = 0
 
 def backtest(sig ,account):
     money = account[0]
-    stock = account[1]
+    num = account[1]
+    stock = num*100
+
+    #num =3
     if sig is not None:
         if(sig.has_key("buy")):
             if stock == 0:
                 price = sig["buy"]
-                if(money > price * 100):
-                    money = money - price * 100
-                    stock = 100
+                num=int(money/3/price/100)
+                
+                if(money > price * num*100):
+                    money = float(money) - price * num*100
+                    stock = num*100
+                    print "num:",num
+                    print "------buy-----------"
+               	    print "money:", float(money)
+                    print "stock:", stock
+                    print "---------------------"
+                    account=[money,num]
                 else:
                     print "money not enough"
-                print "money:", money
-                print "stock:", stock
-                account=[money,stock]
+
+                
             else:
-                print "can not trade"
+                print "already buy stock,can not trade"
         else:
-            if(stock == 100):
+            if(stock != 0):
                 price = sig["sell"]
-                money = money + 100 * price
+                money = float(money) + num * price*100
                 stock = 0
-                print "money:", money
+                num=0
+                print "------sell-----------"
+                print "money:", float(money)
                 print "stock:", stock
-                account=[money,stock]
+                print "---------------------"
+                account=[money,num]
             else:
-                print "can not trade"
-    return account
+                print "no stock,can not sell"
+    	return account
+    else:
+    	print "no sig"
+    	return account
 
 account=[10000,0]
 for i in get_k_list(df):
@@ -184,7 +200,7 @@ for i in get_k_list(df):
         if(len(filter_k) >= 3):
             sig = test(filter_k[-3:], cat_model)
             account=backtest(sig,account)
-            #print account
+            print account
 
 
 
