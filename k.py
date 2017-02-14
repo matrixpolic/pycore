@@ -1,6 +1,6 @@
 import core.data_level.mysql as mysql
-
-df = mysql.select_basd_on_code('600123')
+code ="000009"
+df = mysql.select_basd_on_code(code)
 
 
 class k(object):
@@ -148,9 +148,72 @@ for i in range(0, len(k_list)):
                     	pass
         pass
 
+import pandas as pd
+cat_model=pd.DataFrame([],columns=['code','date','type'])
+
+def getTop(test):
+	k_top=[]
+	for i in test:
+		k_top.append(i.top)
+	return k_top.index(max(k_top))
+
+def getBottom(test):
+	k_bottom=[]
+	for i in test:
+		k_bottom.append(i.bottom)
+	return k_bottom.index(min(k_bottom))
+
 for i in range(0,len(filter_k)):
-	if(i>=2):
-		contain_check(filter_k[i-1], filter_k[i])
+	if(i>=3):
+		#contain_check(filter_k[i-1], filter_k[i])
+		if(filter_k[i-2].top<filter_k[i-1].top >filter_k[i].top):
+			if isinstance(filter_k[i-1],contain_k):
+				print "top formate contain_k"
+				if(filter_k[i-1].c_type=="l"):
+					print filter_k[i-1].k_list[getTop(filter_k[i-1].k_list)].k.name
+					date_top = filter_k[i-1].k_list[getTop(filter_k[i-1].k_list)].k.name
+					#test max
+					#test=filter_k[i-1].k_list
+
+					cat_model.loc[i-1]=[code,date_top,"top"]
+
+				elif(filter_k[i-1].c_type=="r"):
+					print filter_k[i-1].k_list[getTop(filter_k[i-1].k_list)].k.name
+					date_top = filter_k[i-1].k_list[getTop(filter_k[i-1].k_list)].k.name
+
+					cat_model.loc[i-1]=[code,date_top,"top"]
+			else:
+				print "top formate"
+				print filter_k[i-1].k.name
+
+				cat_model.loc[i-1]=[code,filter_k[i-1].k.name,"top"]
+
+		elif(filter_k[i-2].bottom>filter_k[i-1].bottom <filter_k[i].bottom):
+			if isinstance(filter_k[i-1],contain_k):
+				print "bottom formate contain_k"
+				if(filter_k[i-1].c_type=="l"):
+					print filter_k[i-1].k_list[getBottom(filter_k[i-1].k_list)].k.name
+					bottom = filter_k[i-1].k_list[getBottom(filter_k[i-1].k_list)].k.name
+
+					cat_model.loc[i-1]=[code,bottom,"bottom"]
+				elif(filter_k[i-1].c_type=="r"):
+					print filter_k[i-1].k_list[getBottom(filter_k[i-1].k_list)].k.name
+					bottom = filter_k[i-1].k_list[getBottom(filter_k[i-1].k_list)].k.name
+
+					cat_model.loc[i-1]=[code,bottom,"bottom"]
+			else:
+				print "bottom formate"
+				print filter_k[i-1].k.name
+				cat_model.loc[i-1]=[code,filter_k[i-1].k.name,"bottom"]
+
+
+
+#insert to db
+mysql.insert_tab(cat_model, code)
+
+
+
+	
 
 
 
