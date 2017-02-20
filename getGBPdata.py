@@ -5,13 +5,13 @@ import requests
 import json
 import pandas as pd
 
-headers = {	'Authorization': '101-004-4052008-001 2e4fbc4ab3d4fb9c8bc5050d14409d97-5aa9c73f1b01fa84afc3f77615efacdb',
+headers = {	'Authorization': '101-004-4052008-001 cc553b471bb745d9e05240f2cdddf887-934e592e54f0d0b70d1939b98f94b968',
             'X-Target-URI': 'https://api-fxpractice.oanda.com',
             'Connection': 'Keep-Alive',
             'Host': 'api-fxpractice.oanda.com'
             }
 
-headers = {	'Authorization': '101-004-4052008-001 2e4fbc4ab3d4fb9c8bc5050d14409d97-5aa9c73f1b01fa84afc3f77615efacdb',
+headers = {	'Authorization': '101-004-4052008-001 cc553b471bb745d9e05240f2cdddf887-934e592e54f0d0b70d1939b98f94b968',
             'X-Target-URI': 'https://api-fxpractice.oanda.com',
             'Connection': 'Keep-Alive',
             'Host': 'api-fxpractice.oanda.com'

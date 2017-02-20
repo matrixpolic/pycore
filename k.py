@@ -1,6 +1,4 @@
 import core.data_level.mysql as mysql
-code ="000009"
-df = mysql.select_basd_on_code(code)
 
 
 class k(object):
