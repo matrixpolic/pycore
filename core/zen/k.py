@@ -1,5 +1,3 @@
-import core.data_level.mysql as mysql
-
 
 class k(object):
     """docstring for ClassName"""
